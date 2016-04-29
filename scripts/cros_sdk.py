@@ -271,10 +271,10 @@ If given args those are passed to the chroot environment, and executed."""
   cros_build_lib.AssertOutsideChroot()
 
   host = os.uname()[4]
-  if host != 'x86_64':
+  if host != 'x86_64'and host !="ppc64le":
     parser.error(
-        "cros_sdk is currently only supported on x86_64; you're running"
-        " %s.  Please find a x86_64 machine." % (host,))
+        "cros_sdk is currently only supported on x86_64 and ppc64le; you're running"
+        " %s.  Please find the machine." % (host,))
 
   missing = osutils.FindMissingBinaries(NEEDED_TOOLS)
   if missing:
